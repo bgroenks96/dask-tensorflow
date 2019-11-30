@@ -1,3 +1,8 @@
-from .core import _start_tensorflow, start_tensorflow
+import tensorflow as tf
 
-__version__ = '0.0.2'
+if tf.__version__ >= "2.0.0":
+    from .core_v2 import _start_tensorflow, start_tensorflow
+else:
+    from .core import _start_tensorflow, start_tensorflow
+
+__version__ = '0.1.0'
